@@ -6,7 +6,7 @@ import Conclusao from './paginas/conclusão/Conclusao';
 function App() {
   return (
     <>
-    <Home/>
+    {/* <Home/> */}
     <Busca/>
     <Conclusao/>
     </>

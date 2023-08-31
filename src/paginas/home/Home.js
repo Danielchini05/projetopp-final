@@ -12,7 +12,7 @@ function Home(){
 
         <ConteudoHome>
             <TituloHome>
-                Introduçãoasdfasdfasdf
+                Introdução
             </TituloHome>
 
             <p>

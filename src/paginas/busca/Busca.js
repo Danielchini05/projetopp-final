@@ -11,7 +11,7 @@ function Busca(){
                     <Input type = "search" placeholder = "pesquisar" />
                     <a href="#">Início</a>
                     <a href="#">Mapa</a>
-                    <a href="#">Sobreeee</a>
+                    <a href="#">Sobre</a>
                 </Nav>
             </HeaderStyled>
         </>

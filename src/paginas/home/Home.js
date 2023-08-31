@@ -1,11 +1,17 @@
 import Header from "../../components/Header/Header"
 import imagemConteudo from "../../assets/imagemHome.png"
 import {ImagemHeader, TituloHome, ImgConteudo, ConteudoHome} from "./HomeStyled"
+import { useNavigate } from "react-router-dom"
 
 function Home(){
+    const navigate = useNavigate()
+
+    const goToBusca = () =>{
+        navigate('/busca')
+    }
     return(
         <>
-        <Header/>
+        <Header goToBusca={goToBusca}/>
         
         <ImagemHeader/>
    

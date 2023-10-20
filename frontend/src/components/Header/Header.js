@@ -1,15 +1,14 @@
 import { useNavigate } from "react-router-dom"
 import logo1 from "../../assets/logo1.png"
-import { Input } from "../../paginas/busca/styledBusca"
-import { HeaderStyled, Nav } from "./HeaderStyled"
+import { BotaoNavegacao, HeaderStyled, Nav } from "./HeaderStyled"
 
 
-function HeaderBusca() {
+function Header() {
 
     const navigate = useNavigate()
-        
+
     const goToInicio = () =>{
-        navigate('/')
+        navigate('/home')
     }
 
     const goToBusca = () =>{
@@ -19,19 +18,18 @@ function HeaderBusca() {
     const goToConclusao = () =>{
         navigate('/conclusao')
     }
-    
+
 
     return (
         <HeaderStyled>
             <img src={logo1} alt="Logo" />
             <Nav>
-            <Input type = "search" placeholder = "pesquisar" />
-                <a onClick={goToInicio}>Início</a>
-                <a onClick={goToBusca} >Mapa</a>
-                <a onClick={goToConclusao}>Sobre</a>
+                <BotaoNavegacao onClick={goToInicio}>Início</BotaoNavegacao>
+                <BotaoNavegacao onClick={goToBusca} >Mapa</BotaoNavegacao>
+                <BotaoNavegacao onClick={goToConclusao}>Sobre</BotaoNavegacao>
             </Nav>
         </HeaderStyled>
     )
 }
 
-export default HeaderBusca
+export default Header

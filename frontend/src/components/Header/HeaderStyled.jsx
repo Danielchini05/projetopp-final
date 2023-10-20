@@ -11,3 +11,16 @@ export const Nav = styled.nav`
     display: flex;
     gap: 32px;
 `
+
+export const BotaoNavegacao = styled.a`
+    &:hover{
+        border-bottom: solid;
+        border-color: #00000
+        
+    }
+`
+
+
+
+
+

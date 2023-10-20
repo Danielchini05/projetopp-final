@@ -1,14 +1,16 @@
 import { useNavigate } from "react-router-dom"
 import logo1 from "../../assets/logo1.png"
+// import { Input } from "../../paginas/busca/styledBusca"
 import { HeaderStyled, Nav } from "./HeaderStyled"
 
 
-function Header() {
+
+function HeaderBusca() {
 
     const navigate = useNavigate()
-
+        
     const goToInicio = () =>{
-        navigate('/')
+        navigate('/home')
     }
 
     const goToBusca = () =>{
@@ -18,7 +20,7 @@ function Header() {
     const goToConclusao = () =>{
         navigate('/conclusao')
     }
-
+    
 
     return (
         <HeaderStyled>
@@ -32,4 +34,4 @@ function Header() {
     )
 }
 
-export default Header
+export default HeaderBusca

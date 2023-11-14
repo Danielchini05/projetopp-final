@@ -5,37 +5,28 @@ import { CadastroContainer, Form, FormGroup, Label, Input, Button } from "../cad
 
 function Cadastro() {
   const navigate = useNavigate();
-  const [state, setState] = useState({
-    nome: "",
-    email: "",
-    senha: "",
-  });
+  const [nome, setNome]   = useState("")
+  const [email, setEmail] = useState("")
+  const [senha, setSenha] = useState("")
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setState({
-      ...state,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit =  async (e) => {
     e.preventDefault();
 
     // Dados a serem enviados para a API
     const data = {
-      nome: state.nome,
-      email: state.email,
-      senha: state.senha,
+      nome,
+      email,
+      senha
     };
 
+    console.log(data);
     // Realize uma solicitação POST à sua API
-    axios
-      .post("https://localhost:3009/user/create", data)
+    await axios
+      .post("http://localhost:3009/api/user/create", data)
       .then((response) => {
         console.log("Cadastro bem-sucedido", response.data);
         // Redirecione para a página de início ou faça outra ação apropriada
-        navigate("/home");
+        navigate("/login");
       })
       .catch((error) => {
         console.error("Erro no cadastro", error);
@@ -46,20 +37,35 @@ function Cadastro() {
   return (
     <CadastroContainer>
       <h2>Cadastro</h2>
-      <Form onSubmit={handleSubmit}>
+      <Form>
         <FormGroup>
           <Label>Nome:</Label>
-          <Input type="text" name="nome" value={state.nome} onChange={handleChange} />
+          <Input 
+            type="text" 
+            name="nome" 
+            value={nome} 
+            onChange={(e) => setNome(e.target.value)} 
+          />
         </FormGroup>
         <FormGroup>
           <Label>Email:</Label>
-          <Input type="email" name="email" value={state.email} onChange={handleChange} />
+          <Input 
+            type="email" 
+            name="email" 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
+          />
         </FormGroup>
         <FormGroup>
           <Label>Senha:</Label>
-          <Input type="password" name="senha" value={state.senha} onChange={handleChange} />
+          <Input 
+           type="password" 
+           name="senha" 
+           value={senha} 
+           onChange={(e) => setSenha(e.target.value)} 
+          />
         </FormGroup>
-        <Button type="submit">Cadastrar</Button>
+        <Button onClick={handleSubmit}>Cadastrar</Button>
       </Form>
     </CadastroContainer>
   );

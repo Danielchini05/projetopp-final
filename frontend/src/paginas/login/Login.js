@@ -1,19 +1,21 @@
+import axios from "axios";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {LoginContainer, Form, FormGroup, Label, Input, Button, SignUpButton} from "../login/styledLogin"
 
 function Login() {
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState()
-  const [senha, setSenha] = useState()
+  const [email, setEmail] = useState("")
+  const [senha, setSenha] = useState("")
 
 
   function criarUsuario() {
-    body:{
+    const data = {
       email,
       senha
     }
-    axios.post("http//localhost",body )
+    axios.post("http//localhost",data )
     .then((response) =>{
       alert(response.data.message);
 

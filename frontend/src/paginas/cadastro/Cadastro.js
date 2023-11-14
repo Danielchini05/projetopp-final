@@ -31,7 +31,7 @@ function Cadastro() {
 
     // Realize uma solicitação POST à sua API
     axios
-      .post("https://localhost:3009/users", data)
+      .post("https://localhost:3009/user/create", data)
       .then((response) => {
         console.log("Cadastro bem-sucedido", response.data);
         // Redirecione para a página de início ou faça outra ação apropriada

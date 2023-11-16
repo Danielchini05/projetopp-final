@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import Footer from "../../components/footer/Footer"
 import Header from "../../components/Header/Header"
 import { ConteudoConclusao } from "./Styled"
 
@@ -31,6 +32,7 @@ Nam egestas justo in tempor vehicula. Cras id ullamcorper felis. Curabitur tellu
 Praesent tristique, nulla at iaculis molestie, nibh arcu tincidunt elit, volutpat pharetra enim odio fringilla nunc. In sagittis elit a congue facilisis. Suspendisse nec aliquam elit. Suspendisse ac semper purus. Sed pharetra lorem risus, vel dictum lacus accumsan et. Duis at ex finibus, dictum lorem condimentum, hendrerit libero. Integer pharetra turpis vitae massa venenatis sollicitudin. Sed lacinia laoreet felis ac facilisis. Sed eget turpis ut massa feugiat consequat. Mauris vestibulum quam vitae metus egestas, eu gravida libero interdum. Pellentesque a turpis turpis. Donec ut lobortis ex. Vestibulum in mi dignissim, dictum elit eu, sodales leo.
             </p>
         </ConteudoConclusao>
+        <Footer/>
         </>
     )
 }

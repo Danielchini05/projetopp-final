@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios"; // Importe o Axios
 import { CadastroContainer, Form, FormGroup, Label, Input, Button } from "../cadastro/CadastroStyles";
+import Footer from "../../components/footer/Footer";
 
 function Cadastro() {
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ function Cadastro() {
   };
 
   return (
+    <>
     <CadastroContainer>
       <h2>Cadastro</h2>
       <Form>
@@ -68,6 +70,8 @@ function Cadastro() {
         <Button onClick={handleSubmit}>Cadastrar</Button>
       </Form>
     </CadastroContainer>
+    <Footer/>
+    </>
   );
 }
 

@@ -2,6 +2,7 @@ import Header from "../../components/Header/Header"
 import imagemConteudo from "../../assets/imagemHome.png"
 import {ImagemHeader, TituloHome, ImgConteudo, ConteudoHome} from "./HomeStyled"
 import { useNavigate } from "react-router-dom"
+import Footer from "../../components/footer/Footer"
 
 function Home(){
    
@@ -27,6 +28,8 @@ function Home(){
             </ImgConteudo>
 
         </ConteudoHome>
+
+        <Footer/>
         </>
 
         

@@ -110,22 +110,7 @@ const Map = () => {
         </div>
       )}
 
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}        
-        contentLabel="Example Modal"
-      >
-        
-        <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
-        <form>
-          <input type={Text}></input>
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
-      </Modal>
+      
 
     </div>
 

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../components/footer/Footer";
 import {LoginContainer, Form, FormGroup, Label, Input, Button, SignUpButton} from "../login/styledLogin"
 
 function Login() {
@@ -9,23 +10,30 @@ function Login() {
   const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  function criarUsuario() {
-    const data = {
+    const body ={
       email,
       senha
     }
-    axios.post("http//localhost",data )
-    .then((response) =>{
-      alert(response.data.message);
-
-    })
-    .catch(err =>{
-      console.log(err)
-    })
-  }
-
-
+  
+    try {
+      const response = await axios.post('http://localhost:3009/api/auth/login', body);
+  
+      if (response.status === 200) {
+        // Aqui você pode decidir como deseja lidar com o token retornado pela API
+        // Normalmente, você o armazenaria em algum estado global ou local
+        console.log('Login bem-sucedido!');
+        goToHome(); // Redireciona para a página inicial após o login
+      } else {
+        console.error('Falha no login');
+      }
+    } catch (error) {
+      console.error('Erro na requisição:', error);
+    }
+  };
+  
   const goToHome = () => {
     navigate("/home");
   }
@@ -34,12 +42,6 @@ function Login() {
     navigate("/cadastro")
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Adicione a lógica de autenticação aqui, como verificar o email e a senha.
-    // Após a autenticação bem-sucedida, você pode redirecionar para a página de início.
-    goToHome();
-  };
 
   return (
     <>
@@ -49,21 +51,27 @@ function Login() {
           <FormGroup>
             <Label>Email:</Label>
             <Input
-            value={email}
-            onChange={(e) => e.target.value}
-            type="email" name="email" />
+              value={email}
+              type="email" 
+              name="email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </FormGroup>
           <FormGroup>
             <Label>Senha:</Label>
             <Input 
-            value={senha}
-            onChange={(e) => e.target.value}
-            type="password" name="senha" />
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+              type="password" 
+              name="senha"
+            />
           </FormGroup>
-          <Button type="submit">Entrar</Button>
+          <Button type="submit" onClick={goToHome}>Entrar</Button>
         </Form>
         <SignUpButton onClick={goToCadastro}>Cadastre-se</SignUpButton>
       </LoginContainer>
+
+      <Footer/>
     </>
   );
 }

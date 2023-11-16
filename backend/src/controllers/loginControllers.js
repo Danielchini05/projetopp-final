@@ -10,7 +10,7 @@ const jwt = require('jsonwebtoken');
 // Authentication
 async function login(request, response) {
     // Preparar o comando de execução no banco
-    const query = "SELECT * FROM users WHERE `email` = ?";
+    const query = "SELECT * FROM usuarios WHERE `email` = ?";
     
     // Recuperar credenciais informadas
     const params = Array(

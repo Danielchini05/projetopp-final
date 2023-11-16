@@ -12,6 +12,7 @@ function Rotas(){
             <Routes>
                 <Route index element={<Login/>}/>
                 <Route path="cadastro" element={<Cadastro/>}/>
+                <Route path="login" element={<Login/>}/>
                 <Route path="home" element={<Home/>}/>
                 <Route path="busca" element={<Busca/>}/>
                 <Route path="conclusao" element={<Conclusao/>}/>
